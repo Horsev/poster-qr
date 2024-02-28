@@ -1,0 +1,7 @@
+{
+  "name": "Poster QR",
+  "short_name": "Poster QR",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

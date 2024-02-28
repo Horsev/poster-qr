@@ -1,0 +1,32 @@
+#modalMenu.modal.fade(
+  tabindex="-1",
+  aria-hidden="true",
+  data-bs-backdrop="static"
+)
+  .modal-dialog.modal-dialog-centered
+    main.modal-content
+      article.modal-header.flex-column
+        img.ps-img-title.rounded-circle.mb-2(
+          src=settings.logo,
+          alt=settings.name
+        )
+        hgroup.text-center
+          h1.mb-0=settings.name
+          p.text-muted.mb-0 Стіл №
+            =settings.table
+      .modal-body.p-0
+        .list-group.list-group-flush.rounded-bottom
+          each item in menu
+            a.list-group-item.list-group-item-action.d-flex.justify-content-start.align-items-start(href="#")
+              .p-2
+                i.far.fa-fw(class=item.icon)
+              .p-2.me-auto
+                = item.name
+                if item.description.length
+                  .text-body-secondary.small= item.description
+              .p-2
+                i.far.fa-fw.fa-chevron-right
+      footer.modal-footer
+        button.btn.mx-auto(data-bs-theme-switch)
+          i.far.fa-fw.fa-brightness
+          i.far.fa-fw.fa-moon

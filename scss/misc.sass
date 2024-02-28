@@ -1,0 +1,36 @@
+body
+  min-height: 100vh
+  background-image: url('https://ua.igotoworld.com/frontend/webcontent/websites/1/images/gallery/2766536_800x600_unnamed.png')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+
+img.ps-img-title
+  height: 128px
+
+i.far, .svg-inline--fa
+  display: inline-block
+  width: 1em
+  height: 1em
+  overflow: visible
+  vertical-align: -0.125em
+
+.modal
+  --bs-modal-margin: 2rem
+  --bs-modal-border-radius: 2rem
+
+[data-bs-theme-switch]
+  svg
+    pointer-events: none
+    &.fa-brightness
+      color: var(--bs-warning)
+    &.fa-moon
+      color: var(--bs-info)
+
+[data-bs-theme="dark"]
+  svg.fa-brightness
+    display: none
+
+[data-bs-theme="light"]  
+  svg.fa-moon
+    display: none
