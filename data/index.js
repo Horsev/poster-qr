@@ -6,7 +6,7 @@ const settings = {
 };
 
 const menu = [
-  { name: "Меню", icon: "book-open-cover", description: "" },
+  { name: "Меню", icon: "book-open-cover" },
   {
     name: "Оплата",
     icon: "credit-card",
