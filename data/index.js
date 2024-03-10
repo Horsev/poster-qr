@@ -6,15 +6,15 @@ const settings = {
 };
 
 const menu = [
-  { name: "Меню", icon: "fa-book-open-cover", description: "" },
+  { name: "Меню", icon: "book-open-cover", description: "" },
   {
     name: "Оплата",
-    icon: "fa-credit-card",
+    icon: "credit-card",
     description: "Перевіряйте та сплачуйте рахунок безконтактно",
   },
   {
     name: "Доставлення",
-    icon: "fa-moped",
+    icon: "moped",
     description: "Доставлення до ваших дверей",
   },
 ];

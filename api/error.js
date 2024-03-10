@@ -1,6 +1,6 @@
 import { uglifyJS, noNewline, faIcon } from "../helpers/filters.js";
 
-const createErrorPage = (message) => async (request, result) => {
+const createErrorPage = (message) => async (result) => {
   const templateData = {
     error: true,
     message,

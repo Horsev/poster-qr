@@ -1,10 +1,10 @@
 import { minify } from "uglify-js";
 
-import { replaceRegex } from "./strings.js";
-
 import { compose } from "./fp.js";
 
 export { faIcon, noNewline, uglifyJS };
+
+const replaceRegex = (re, value) => (string) => string.replace(re, value);
 
 const reHTMLComments = /<!--[\s\S]*?-->/g;
 const reMultiSpace = /\s+/g;

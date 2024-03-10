@@ -6,3 +6,6 @@ config.env
 
 #Misc
 .DS_Store
+
+#Fontawesome
+img/fa/

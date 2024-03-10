@@ -5,7 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node --env-file=config.env --watch server.js",
+    "start": "node --env-file=.env --watch server.js",
+    "dev": "node --env-file=.env --watch server.js & sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed",
     "watch:sass": "sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed"
   },
   "author": "Mykhailo Svyrydov",
