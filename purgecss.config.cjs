@@ -8,5 +8,7 @@ module.exports = {
     "show",
     "modal-open",
     "modal-static",
+    "fa-brightness",
+    "fa-moon",
   ],
 };
