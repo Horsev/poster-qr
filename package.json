@@ -1,6 +1,6 @@
 {
   "name": "poster-qr",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Poster QR",
   "type": "module",
   "main": "server.js",
@@ -8,7 +8,8 @@
     "start": "node --env-file=.env --watch server.js",
     "dev": "node --env-file=.env --watch server.js & sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed",
     "watch:sass": "sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed",
-    "purgecss": "purgecss --css ./browser/public/css/theme.css --content ./templates/**/*.pug  --output ./browser/public/css --config ./purgecss.config.cjs"
+    "purgecss": "purgecss --css ./browser/public/css/theme.css --content ./templates/**/*.pug  --output ./browser/public/css --config ./purgecss.config.cjs",
+    "prettier:pug": "npx prettier --write '**/*.pug' --plugin='@prettier/plugin-pug'"
   },
   "author": "Mykhailo Svyrydov",
   "license": "ISC",

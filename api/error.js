@@ -1,4 +1,4 @@
-import { uglifyJS, noNewline, faIcon } from "../helpers/filters.js";
+import { uglifyJS, noNewline, faIcon } from "../helpers/pug-filters.js";
 
 const createErrorPage = (message) => async (result) => {
   const templateData = {

@@ -1,4 +1,4 @@
-import { faIcon, noNewline, uglifyJS } from "../helpers/filters.js";
+import { faIcon, noNewline, uglifyJS } from "../helpers/pug-filters.js";
 import pageData from "../data/index.js";
 
 const createCompanyPage = async (request, result) => {
