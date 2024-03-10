@@ -1,3 +1,4 @@
-plugins: ["@prettier/plugin-pug"]
-"printWidth": 80
-"singleQuote": false
+plugins:
+  - "@prettier/plugin-pug"
+printWidth: 80
+singleQuote: false
