@@ -1,9 +1,19 @@
 mixin fa(icon)
-  if icon === "book-open-cover"
-    include:fa-icon:no-newline ../../img/fa/regular/book-open-cover.svg
-  else if icon === "credit-card"
-    include:fa-icon:no-newline ../../img/fa/regular/credit-card.svg
-  else if icon === "moped"
-    include:fa-icon:no-newline ../../img/fa/regular/moped.svg
-  else
-    include:fa-icon:no-newline ../../img/fa/regular/notdef.svg
+  case icon 
+    when "book-open-cover"
+      include:fa-icon ../../fontawesome/svgs/regular/book-open-cover.svg
+    when "credit-card"
+      include:fa-icon ../../fontawesome/svgs/regular/credit-card.svg
+    when "moped"
+      include:fa-icon ../../fontawesome/svgs/regular/moped.svg
+    when "qrcode"
+      include:fa-icon ../../fontawesome/svgs/regular/qrcode.svg
+    when "chevron-right"
+      include:fa-icon ../../fontawesome/svgs/solid/chevron-right.svg
+    when "brightness"
+      include:fa-icon ../../fontawesome/svgs/solid/brightness.svg
+    when "moon"
+      include:fa-icon ../../fontawesome/svgs/solid/moon.svg
+      
+    default
+      include:fa-icon ../../fontawesome/svgs/regular/notdef.svg

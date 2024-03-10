@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node --env-file=.env --watch server.js",
     "dev": "node --env-file=.env --watch server.js & sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed",
-    "watch:sass": "sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed"
+    "watch:sass": "sass --watch ./scss/theme.sass ./browser/public/css/theme.css --style compressed",
+    "purgecss": "purgecss --css ./browser/public/css/theme.css --content ./templates/**/*.pug  --output ./browser/public/css --config ./purgecss.config.cjs"
   },
   "author": "Mykhailo Svyrydov",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "uglify-js": "^3.17.4"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "purgecss-from-pug": "^5.0.0",
     "@prettier/plugin-pug": "^3.0.0",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",

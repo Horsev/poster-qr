@@ -1,0 +1,13 @@
+.list-group.list-group-flush.rounded-bottom
+  each item in menu
+    a.list-group-item.list-group-item-action.d-flex.justify-content-start.align-items-start(
+      href="#"
+    )
+      .p-2
+        +fa(item.icon)
+      .p-2.me-auto
+        = item.name
+        if item.description.length
+          .text-body-secondary.small= item.description
+      .p-2
+        +fa("chevron-right")

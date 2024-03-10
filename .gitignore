@@ -2,10 +2,10 @@
 node_modules/
 
 # dotenv environment variables file
-config.env
+.env
 
 #Misc
 .DS_Store
 
 #Fontawesome
-img/fa/
+fontawesome/

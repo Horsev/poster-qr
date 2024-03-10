@@ -9,24 +9,30 @@ const replaceRegex = (re, value) => (string) => string.replace(re, value);
 const reHTMLComments = /<!--[\s\S]*?-->/g;
 const reMultiSpace = /\s+/g;
 
-const addClassToSvgTag = (cssClass) =>
-  replaceRegex(/<svg([^>]+)>/, `<svg$1 class="${cssClass}">`);
+const addClassToFaIcon =
+  (defaultClass) =>
+  (html, { filename }) => {
+    const [iconName] = filename.split("/").pop().split(".");
 
-const addAttributeFillToPathTag = (pathFill) =>
+    return html.replace(
+      /<svg([^>]+)>/,
+      `<svg$1 class="fa-${iconName} ${defaultClass}">`,
+    );
+  };
+
+const addAttributeFillToFaIcon = (pathFill) =>
   replaceRegex(/<path([^>]+)(\/)>/, `<path$1 fill="${pathFill}" />`);
 
 const removeHTMLComments = replaceRegex(reHTMLComments, "");
 
 const removeMultispaces = replaceRegex(reMultiSpace, " ");
 
-const faIconFilter = compose(
+const faIcon = compose(
   removeMultispaces,
   removeHTMLComments,
-  addAttributeFillToPathTag("currentColor"),
-  addClassToSvgTag("svg-inline--fa"),
+  addAttributeFillToFaIcon("currentColor"),
+  addClassToFaIcon("svg-inline--fa"),
 );
-
-const faIcon = faIconFilter;
 
 const noNewline = (html) => html.replace(/\n/g, " ");
 

@@ -1,4 +1,3 @@
-include ../mixins/fontawesome.pug
 #modalMenu.modal.fade(
   tabindex="-1",
   aria-hidden="true",
@@ -16,20 +15,9 @@ include ../mixins/fontawesome.pug
           p.text-muted.mb-0 Стіл №
             = settings.table
       .modal-body.p-0
-        .list-group.list-group-flush.rounded-bottom
-          each item in menu
-            a.list-group-item.list-group-item-action.d-flex.justify-content-start.align-items-start(
-              href="#"
-            )
-              .p-2
-                +fa(item.icon)
-              .p-2.me-auto
-                = item.name
-                if item.description.length
-                  .text-body-secondary.small= item.description
-              .p-2
-                i.far.fa-fw.fa-chevron-right
+        include menu
+
       footer.modal-footer
         button.btn.mx-auto(data-bs-theme-switch)
-          i.far.fa-fw.fa-brightness
-          i.far.fa-fw.fa-moon
+          +fa("brightness")
+          +fa("moon")
