@@ -16,7 +16,7 @@
 
 3. `npm start`
 
-# .env
+## .env
 
 ```.env
 PORT = 908
