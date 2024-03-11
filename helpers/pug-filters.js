@@ -7,34 +7,39 @@ export { faIcon, noNewline, uglifyJS };
 const FONTAWESOME_CLASS = "svg-fa";
 const DEFAULT_FILL_COLOR = "currentColor";
 
-const replaceRegex = (re, value) => (string) => string.replace(re, value);
+const RE_HTML_COMMENTS = /<!--[\s\S]*?-->/g;
+const RE_MULTI_SPACE = /\s+/g;
+const RE_SVG_OPEN_TAG = /<svg([^>]+)>/gi;
+const RE_PATH_TAG = /<path([^>]+)(\/)>/gi;
 
-const reHTMLComments = /<!--[\s\S]*?-->/g;
-const reMultiSpace = /\s+/g;
+const replaceRegex = (re, value) => (string) => string.replace(re, value);
+const removeHTMLComments = replaceRegex(RE_HTML_COMMENTS, "");
+const removeMultispaces = replaceRegex(RE_MULTI_SPACE, " ");
+
+const setClassToSVG = (iconName, defaultClass) =>
+  `<svg$1 class="fa-${iconName} ${defaultClass}">`;
+
+const setPathFill = (pathFill) => `<path$1 fill="${pathFill}" />`;
 
 const addClassToFaIcon =
   (defaultClass) =>
-  (html, { filename }) => {
-    const [iconName] = filename.split("/").pop().split(".");
+  ({ html, iconName }) =>
+    html.replace(RE_SVG_OPEN_TAG, setClassToSVG(iconName, defaultClass));
 
-    return html.replace(
-      /<svg([^>]+)>/,
-      `<svg$1 class="fa-${iconName} ${defaultClass}">`,
-    );
-  };
+const extractIconName = (html, { filename }) => ({
+  html,
+  iconName: filename.split("/").pop().split(".")[0],
+});
 
 const addAttributeFillToFaIcon = (pathFill) =>
-  replaceRegex(/<path([^>]+)(\/)>/, `<path$1 fill="${pathFill}" />`);
-
-const removeHTMLComments = replaceRegex(reHTMLComments, "");
-
-const removeMultispaces = replaceRegex(reMultiSpace, " ");
+  replaceRegex(RE_PATH_TAG, setPathFill(pathFill));
 
 const faIcon = compose(
   removeMultispaces,
   removeHTMLComments,
   addAttributeFillToFaIcon(DEFAULT_FILL_COLOR),
   addClassToFaIcon(FONTAWESOME_CLASS),
+  extractIconName,
 );
 
 const noNewline = (html) => html.replace(/\n/g, " ");
