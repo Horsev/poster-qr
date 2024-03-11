@@ -1,8 +1,7 @@
 import { uglifyJS, noNewline, faIcon } from "../helpers/pug-filters.js";
 
 const PAGE_NOT_FOUND = 404;
-
-const templateFilters = {
+const FILTERS = {
   "uglify-js": uglifyJS,
   "no-newline": noNewline,
   "fa-icon": faIcon,
@@ -16,7 +15,7 @@ const templateSettings = (filters) => (message) => ({
   message,
 });
 
-const errorTemplate = templateSettings(templateFilters);
+const errorTemplate = templateSettings(FILTERS);
 
 const renderErrorPage = (message, result) =>
   result.render("error.pug", errorTemplate(message));

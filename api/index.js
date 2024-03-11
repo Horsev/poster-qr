@@ -10,7 +10,6 @@ const FILTERS = {
 
 const createCompanyPage = async (_, result) => {
   const clientData = await getClientData(CLIENT_ID);
-
   const templateData = {
     ...clientData,
     filters: FILTERS,
