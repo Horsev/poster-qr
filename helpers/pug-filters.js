@@ -4,6 +4,9 @@ import { compose } from "./fp.js";
 
 export { faIcon, noNewline, uglifyJS };
 
+const FONTAWESOME_CLASS = "svg-fa";
+const DEFAULT_FILL_COLOR = "currentColor";
+
 const replaceRegex = (re, value) => (string) => string.replace(re, value);
 
 const reHTMLComments = /<!--[\s\S]*?-->/g;
@@ -30,8 +33,8 @@ const removeMultispaces = replaceRegex(reMultiSpace, " ");
 const faIcon = compose(
   removeMultispaces,
   removeHTMLComments,
-  addAttributeFillToFaIcon("currentColor"),
-  addClassToFaIcon("svg-inline--fa"),
+  addAttributeFillToFaIcon(DEFAULT_FILL_COLOR),
+  addClassToFaIcon(FONTAWESOME_CLASS),
 );
 
 const noNewline = (html) => html.replace(/\n/g, " ");
