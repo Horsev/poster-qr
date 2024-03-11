@@ -1,4 +1,4 @@
-import { uglifyJS, noNewline, faIcon } from "../helpers/pug-filters.js";
+import { uglifyJS, noNewline, faIcon } from "../filters/index.js";
 
 const PAGE_NOT_FOUND = 404;
 const FILTERS = {

@@ -1,4 +1,4 @@
-import { faIcon, noNewline, uglifyJS } from "../helpers/pug-filters.js";
+import { faIcon, noNewline, uglifyJS } from "../filters/index.js";
 import getClientData from "../data/index.js";
 
 const CLIENT_ID = "pubkedsconfig";

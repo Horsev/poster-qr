@@ -1,8 +1,4 @@
-import { minify } from "uglify-js";
-
-import { compose } from "./fp.js";
-
-export { faIcon, noNewline, uglifyJS };
+import { compose } from "../helpers/fp.js";
 
 const FONTAWESOME_CLASS = "svg-fa";
 const DEFAULT_FILL_COLOR = "currentColor";
@@ -26,9 +22,14 @@ const addClassToFaIcon =
   ({ html, iconName }) =>
     html.replace(RE_SVG_OPEN_TAG, setClassToSVG(iconName, defaultClass));
 
+const getIconName = (filename) => {
+  const [iconName] = filename.split("/").pop().split(".");
+  return iconName;
+};
+
 const extractIconName = (html, { filename }) => ({
   html,
-  iconName: filename.split("/").pop().split(".")[0],
+  iconName: getIconName(filename),
 });
 
 const addAttributeFillToFaIcon = (pathFill) =>
@@ -42,6 +43,4 @@ const faIcon = compose(
   extractIconName,
 );
 
-const noNewline = (html) => html.replace(/\n/g, " ");
-
-const uglifyJS = (script) => minify(script).code;
+export default faIcon;
