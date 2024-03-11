@@ -1,10 +1,11 @@
 import { minify } from "uglify-js";
 import faIcon from "./fontawesome.js";
+import { replaceRegex, RE_NEW_LINE } from "../helpers/regexp.js";
 
 export { faIcon, noNewline, uglifyJS };
 
-const RE_NEW_LINE = /\n/g;
+const removeNewLines = replaceRegex(RE_NEW_LINE, "");
 
-const noNewline = (html) => html.replace(RE_NEW_LINE, " ");
+const noNewline = (html) => removeNewLines(html);
 
 const uglifyJS = (script) => minify(script).code;
