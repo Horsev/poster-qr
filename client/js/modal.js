@@ -1,10 +1,10 @@
 import { Modal } from "bootstrap";
 
-const modalMenuOptions = {
+const MODAL_OPTIONS = {
   keyboard: false,
   focus: false,
 };
 
-const modalMenu = new Modal("#modalMenu", modalMenuOptions);
+const modalMenu = new Modal("#modalMenu", MODAL_OPTIONS);
 
 modalMenu.show();
