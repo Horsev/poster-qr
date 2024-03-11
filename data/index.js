@@ -19,9 +19,9 @@ const menu = [
   },
 ];
 
-const pageData = () => ({
+const getPageData = async () => ({
   settings,
   menu,
 });
 
-export default pageData;
+export default getPageData;

@@ -1,24 +1,10 @@
-(() => {
-  const modalOptions = {
-    keyboard: false,
-    focus: false,
-  };
+import { Modal } from "bootstrap";
 
-  const { Modal } = window.bootstrap;
+const modalMenuOptions = {
+  keyboard: false,
+  focus: false,
+};
 
-  const getModalById = (id) => document.getElementById(id);
+const modalMenu = new Modal("#modalMenu", modalMenuOptions);
 
-  const createModalObject = (modal, options) => new Modal(modal, options);
-
-  const showModal = (modal) => modal.show();
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const modalId = "modalMenu";
-
-    const modalElement = getModalById(modalId);
-
-    const modal = createModalObject(modalElement, modalOptions);
-
-    return showModal(modal);
-  });
-})();
+modalMenu.show();

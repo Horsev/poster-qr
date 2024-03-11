@@ -1,18 +1,19 @@
 import { faIcon, noNewline, uglifyJS } from "../helpers/pug-filters.js";
-import pageData from "../data/index.js";
+import getPageData from "../data/index.js";
 
 const createCompanyPage = async (request, result) => {
-  let templateData = {};
-
   const filters = {
     "uglify-js": uglifyJS,
     "no-newline": noNewline,
     "fa-icon": faIcon,
   };
 
+  let templateData = {};
+
   try {
+    const pageData = await getPageData();
     templateData = {
-      ...pageData(),
+      ...pageData,
       filters,
     };
   } catch ({ message }) {
