@@ -1,20 +1,19 @@
 import { faIcon, noNewline, uglifyJS } from "../helpers/pug-filters.js";
-import getPageData from "../data/index.js";
+import getClientData from "../data/index.js";
 
-const clientID = "pubkedsconfig";
+const CLIENT_ID = "pubkedsconfig";
+const FILTERS = {
+  "uglify-js": uglifyJS,
+  "no-newline": noNewline,
+  "fa-icon": faIcon,
+};
 
-const createCompanyPage = async (request, result) => {
-  const filters = {
-    "uglify-js": uglifyJS,
-    "no-newline": noNewline,
-    "fa-icon": faIcon,
-  };
-
-  const pageData = await getPageData(clientID);
+const createCompanyPage = async (_, result) => {
+  const clientData = await getClientData(CLIENT_ID);
 
   const templateData = {
-    ...pageData,
-    filters,
+    ...clientData,
+    filters: FILTERS,
   };
 
   const template = templateData.isError ? "error.pug" : "index.pug";
